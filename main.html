@@ -6,7 +6,22 @@
 <body>
 
 <h1>this is my website (ignore bas)</h1>
-<img src="heren.png" alt="A cute kitten" height="100">
+<img id="bas" src="heren.png" alt="A cute kitten" height="100">
+
+</body>
+<body>
+
+<h1>click here to make bas bigger</h1>
+<button onclick="Makebigger()">bigger!</button>
+
+<script>
+    let size = 100;
+    function Makebigger() {
+        size += 50;
+        const img = document.getElementById("bas");
+        img.style.width = size + "px"; // or any new size you want
+    }
+</script>
 
 </body>
 </html>
