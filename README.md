@@ -1,3 +1,5 @@
-# Test
-euhh heren?
-is this aura for bas van valen?
+# info for me
+
+updating website:
+https://github.com/Milkyway42114/Test/releases/new
+
