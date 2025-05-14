@@ -3,21 +3,34 @@
 <head>
     <title>=)</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body{
+            background-color: #313131;
+        }
+    </style>
 </head>
 <body>
-
-<h1>this is my website (ignore bas)</h1>
-<img id="bas" src="heren.png" alt="A cute kitten" height="100">
 
 </body>
 <body>
 
-<h1>click here to make bas bigger</h1>
-<button class="button_style" onclick="change_url()">info</button>
+<style>
+    .info {
+        top: 45%;
+    }
+    .projects {
+        top: calc(45% + 60px);
+    }
+</style>
+<button class="button_style info" onclick="change_url_info()">info</button>
+<button class="button_style projects" onclick="change_url_projects()">projects</button>
 
 <script>
-    function change_url() {
+    function change_url_info() {
         window.location.href = "https://milkyway42114.github.io/Test/info.html";
+    }
+    function change_url_projects() {
+        window.location.href = "https://milkyway42114.github.io/Test/projects.html";
     }
 </script>
 <style>
@@ -27,7 +40,7 @@
         background-color: black;
         border-radius: 30px;
         position: absolute;
-        top: 120px;
+        top: 20%;
         left: calc(50% - 150px);
 
         display: flex;
@@ -38,6 +51,6 @@
     }
 
 </style>
-<div class="bas">euhhh-heren.com</div>
+<div class="bas">euhhh heren</div>
 </body>
 </html>
