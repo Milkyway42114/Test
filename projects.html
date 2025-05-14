@@ -40,12 +40,12 @@
           dev_text.textContent = "By " + this.dev_name;
             // decal
           const img = document.createElement("img");
-          img.src = this.decal_name;
+          img.src = "images/" + this.decal_name;
           img.alt = "project decal";
           img.width = 80;
           img.height = 80;
-          img.style.position = "relative";
-          img.style.left = "100px";
+          img.style.position = "absolute";
+          img.style.left = "300px";
 
 
             // game text
@@ -69,17 +69,24 @@
   let tic_tac_toe = new pro(
       "Tic tac toe",
       "Milkyway42114",
-      "heren.png",
-      "empty.html"
+      "tic_img.jpg",
+      "projects/tic_tac_toe.html"
   );
   let new_game = new pro(
-      "new game",
+      "bas van valen",
       "Milkyway42114",
       "heren.png",
+      "projects/bas.html"
+  );
+  let nothing = new pro(
+      "nothing",
+      "no one",
+      "sfasfasfsdafasfdas.jpg",
       "empty.html"
   );
   tic_tac_toe.make_element()
   new_game.make_element()
+  nothing.make_element()
 
 </script>
 
