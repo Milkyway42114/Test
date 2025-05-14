@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>info</title>
+
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+        body{
+            background-color: #313131;
+        }
+    </style>
+</head>
+<body>
+
+<button class="button_style" onclick="change_url_main()">go back</button>
+
+<script>
+  function change_url_main() {
+    window.location.href = "main.html";
+  }
+  function change_url_other(url){
+      window.location.href = url;
+  }
+  let amount_of_projects = 0;
+  class pro {
+      constructor(name, dev_name, decal_name, url) {
+          this.name = name;
+          this.dev_name = dev_name
+          this.decal_name = decal_name
+          this.url = url
+      }
+
+      make_element() {
+            // dev text
+          const dev_text = document.createElement("div");
+          dev_text.className = "dev_name";
+          dev_text.textContent = "By " + this.dev_name;
+            // decal
+          const img = document.createElement("img");
+          img.src = this.decal_name;
+          img.alt = "project decal";
+          img.width = 80;
+          img.height = 80;
+          img.style.position = "relative";
+          img.style.left = "100px";
+
+
+            // game text
+          const n = document.createElement("button");
+
+          n.className = "project_style"
+          n.textContent = this.name;
+          n.style.position = "absolute"
+          n.style.top = 100 + (amount_of_projects * 140) + "px";
+
+          n.onclick = () => change_url_other(this.url);
+
+          n.appendChild(dev_text);
+          n.appendChild(img);
+
+          document.body.appendChild(n);
+
+          amount_of_projects += 1;
+      }
+  }
+  let tic_tac_toe = new pro(
+      "Tic tac toe",
+      "Milkyway42114",
+      "heren.png",
+      "empty.html"
+  );
+  let new_game = new pro(
+      "new game",
+      "Milkyway42114",
+      "heren.png",
+      "empty.html"
+  );
+  tic_tac_toe.make_element()
+  new_game.make_element()
+
+</script>
+
+
+</body>
+</html>

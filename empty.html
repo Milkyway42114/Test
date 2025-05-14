@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <style>
+    body{
+      background-color: #313131;
+    }
+  </style>
+</head>
+<body>
+<style>
+  .main_screen_message{
+    width: 400px;
+    height: 120px;
+    background-color: darkred;
+    border-radius: 10px;
+
+    font-size: 250%;
+    font-family: 'monospace';
+
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 60px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+</style>
+
+<div class="main_screen_message">this page doesnt exist</div>
+<button class="button_style" onclick="change_url_main()">go back</button>
+
+<script>
+  function change_url_main() {
+    window.location.href = "main.html";
+  }
+</script>
+
+</body>
+</html>
