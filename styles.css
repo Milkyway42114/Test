@@ -28,4 +28,5 @@
     display: flex;
     padding-left: 23px;
     padding-top: 15px;
+    margin-left: calc(50% - 200px);
 }
