@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic tac toe</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <link rel="stylesheet" type="text/css" href="tic.css">
+    <style>
+        body{
+            background-color: #1e3150;
+        }
+    </style>
+</head>
+<body>
+
+<button class="button_style" onclick="change_url()">go back</button>
+<div id="who" class="who_text">Player 1s turn</div>
+
+<script>
+    function checkWinner(vec) {
+        // Check rows
+        for (let row = 0; row < 3; row++) {
+            if (vec[row][0] !== 0 && vec[row][0] === vec[row][1] && vec[row][1] === vec[row][2]) {
+                return vec[row][0];
+            }
+        }
+
+        // Check columns
+        for (let col = 0; col < 3; col++) {
+            if (vec[0][col] !== 0 && vec[0][col] === vec[1][col] && vec[1][col] === vec[2][col]) {
+                return vec[0][col];
+            }
+        }
+
+        // Check diagonals
+        if (vec[0][0] !== 0 && vec[0][0] === vec[1][1] && vec[1][1] === vec[2][2]) {
+            return vec[0][0];
+        }
+
+        if (vec[0][2] !== 0 && vec[0][2] === vec[1][1] && vec[1][1] === vec[2][0]) {
+            return vec[0][2];
+        }
+
+        // No winner
+        return 0;
+    }
+
+    function spawn_again_button(){
+        let again = document.createElement("button");
+        again.classList.add("again");
+        again.textContent = "again?"
+        again.addEventListener("click", function () {
+            window.location.href = "tic_tac_toe.html";
+        });
+        document.body.appendChild(again);
+    }
+
+    let vec = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ];
+    let turn = true;
+    let result = 0;
+    function click(row, col){
+        let a = 1;
+        document.body.style.backgroundColor = "#503131";
+        if (!turn) {
+            a = 2;
+            document.body.style.backgroundColor = "#1e3150";
+        }
+        vec[row][col] = a;
+
+        result = checkWinner(vec);
+        console.log(result);
+        if (result === 1){
+            document.getElementById("who").textContent = "Player 1 won!";
+            document.getElementById("who").style.backgroundColor = "green";
+            document.body.style.backgroundColor = "#1e3150";
+            spawn_again_button()
+        }
+        if (result === 2){
+            document.getElementById("who").textContent = "Player 2 won!";
+            document.getElementById("who").style.backgroundColor = "green";
+            document.body.style.backgroundColor = "#503131";
+            spawn_again_button()
+        }
+
+        update_visuals(); // refresh the visuals
+        // switch turns
+        if (result === 0){
+            turn = !turn;
+            if (turn){
+                document.getElementById("who").textContent = "Player 1s turn";
+            } else{
+                document.getElementById("who").textContent = "Player 2s turn";
+            }
+        }
+    }
+
+    // the main background container
+    let container = document.createElement("div");
+    function update_pos(){
+        if (window.innerWidth > 300){
+            container.style.left = (window.innerWidth / 2) - 150 + "px";
+        } else {
+            container.style.left = "5%"
+        }
+    }
+    update_pos();
+    container.classList.add("container");
+
+    // appending it to the main body
+    document.body.appendChild(container);
+
+    // the reference cell
+    let cell = document.createElement("button");
+    cell.classList.add("cell");
+    function update_visuals(){
+        // clear the container
+        container.innerHTML = '';
+        // iterating
+        let x = 3.3 / 2;
+        let y = 3.3 / 2;
+        for (let row = 0; row < vec.length; row++) {
+            for (let col = 0; col < vec[row].length; col++) {
+                let a = vec[row][col];
+                let clone = cell.cloneNode(true);
+                clone.style.top = y + "%";
+                clone.style.left = x + "%";
+
+                clone.addEventListener("click", function () {
+                    // example: toggle between 1 and 2
+
+                    if (vec[row][col] === 0 && result === 0){
+                        click(row, col);
+                    }
+                });
+
+                if (a !== 0){
+                    if (a === 1){
+                        clone.textContent = "X";
+                        clone.style.backgroundColor = "#007BFF"
+                    } else{
+                        clone.textContent = "O";
+                        clone.style.backgroundColor = "#FF4136"
+                    }
+                }
+                // "#007BFF" blue
+                // '#FF4136' red
+                container.appendChild(clone);
+                x += 33.3;
+            }
+            y += 33.3;
+            x = 3.3 / 2;
+        }
+    }
+    update_visuals();
+    function change_url() {
+        window.location.href = "../projects.html";
+    }
+
+    window.addEventListener("resize", update_pos);
+</script>
+
+</body>
+</html>
