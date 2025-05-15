@@ -2,55 +2,56 @@
 <html>
 <head>
     <title>=)</title>
-    <link rel="stylesheet" type="text/css" href="https://milkyway42114.github.io/Test/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-        body{
+        body {
             background-color: #313131;
+            margin: 0;
+            padding: 0;
+        }
+
+        .info {
+            top: 45%;
+        }
+
+        .projects {
+            top: calc(45% + 60px);
+        }
+
+        .bas {
+            width: 300px;
+            height: 80px;
+            background-color: black;
+            border-radius: 30px;
+            position: absolute;
+            top: 20%;
+            left: calc(50% - 150px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: aliceblue;
+            font-size: 250%;
         }
     </style>
 </head>
 <body>
 
-</body>
-<body>
+    <div class="bas">euhhh heren</div>
 
-<style>
-    .info {
-        top: 45%;
-    }
-    .projects {
-        top: calc(45% + 60px);
-    }
-</style>
-<button class="button_style info" onclick="change_url_info()">info</button>
-<button class="button_style projects" onclick="change_url_projects()">projects</button>
+    <button class="button_style info" onclick="change_url_info()">info</button>
+    <button class="button_style projects" onclick="change_url_projects()">projects</button>
 
-<script>
-    function change_url_info() {
-        window.location.href = "https://milkyway42114.github.io/Test/info.html";
-    }
-    function change_url_projects() {
-        window.location.href = "https://milkyway42114.github.io/Test/projects.html";
-    }
-</script>
-<style>
-    .bas {
-        width: 300px;
-        height: 80px;
-        background-color: black;
-        border-radius: 30px;
-        position: absolute;
-        top: 20%;
-        left: calc(50% - 150px);
+    <script>
+        function change_url_info() {
+            window.location.href = "info.html";
+        }
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: aliceblue;
-        font-size: 250%;
-    }
+        function change_url_projects() {
+            window.location.href = "projects.html";
+        }
+    </script>
 
-</style>
-<div class="bas">euhhh heren</div>
 </body>
 </html>
