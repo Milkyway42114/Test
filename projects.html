@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <title>info</title>
 
+    <link rel="stylesheet" type="text/css" href="styles.css">
 
-    <link rel="stylesheet" type="text/css" href="https://milkyway42114.github.io/Test/styles.css">
+    <!-- This meta tag fixes mobile scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body{
+        body {
             background-color: #313131;
+            margin: 0;           /* prevent default body margin */
+            padding: 0 10px;     /* optional horizontal padding */
+            overflow-x: hidden;  /* prevent horizontal scroll */
         }
     </style>
 </head>
@@ -19,7 +24,7 @@
 
 <script>
   function change_url_main() {
-    window.location.href = "https://milkyway42114.github.io/Test/main.html";
+    window.location.href = "main.html";
   }
   function change_url_other(url){
       window.location.href = url;
@@ -40,7 +45,7 @@
           dev_text.textContent = "By " + this.dev_name;
             // decal
           const img = document.createElement("img");
-          img.src = this.decal_name;
+          img.src = "images/" + this.decal_name;
           img.alt = "project decal";
           img.width = 80;
           img.height = 80;
@@ -69,20 +74,26 @@
   let tic_tac_toe = new pro(
       "Tic tac toe",
       "Milkyway42114",
-      "https://milkyway42114.github.io/Test/tic_img.jpg",
-      "https://milkyway42114.github.io/Test/tic_tac_toe.html"
+      "tic_img.jpg",
+      "projects/tic_tac_toe.html"
+  );
+  let new_game = new pro(
+      "bas van valen",
+      "Milkyway42114",
+      "heren.png",
+      "projects/bas.html"
   );
   let nothing = new pro(
       "nothing",
       "no one",
       "sfasfasfsdafasfdas.jpg",
-      "https://milkyway42114.github.io/Test/empty.html"
+      "empty.html"
   );
   tic_tac_toe.make_element()
+  new_game.make_element()
   nothing.make_element()
 
 </script>
-
 
 </body>
 </html>
