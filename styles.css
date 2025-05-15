@@ -17,7 +17,7 @@
 
 .text_box {
     width: 400px;
-    height: 600px;
+    height: calc(100vh - 200px);
     background-color: darkgray;
     border-radius: 10px;
 
