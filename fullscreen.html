@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>fullscreen tester</title>
+    <style>
+        .full{
+            top: calc(100% - 200px);
+        }
+    </style>
+
+</head>
+<body>
+
+<button class="button_style full" onclick="goFullscreen()">fullscreen</button>
+<button class="button_style" onclick="go_back()">go back</button>
+
+<script>
+    function goFullscreen(element = document.documentElement) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) { // Safari
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { // IE11
+            element.msRequestFullscreen();
+        } else {
+            console.warn("Fullscreen API is not supported.");
+        }
+    }
+    function go_back(){
+        window.location.href = "projects.html";
+    }
+
+</script>
+
+</body>
+</html>
