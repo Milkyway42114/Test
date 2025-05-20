@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>music notes visualizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="music.css">
+    <script src="music.js"></script>
+    <style>
+        body {
+            background-color: #313131;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mode_container">
+    <button class="settings_button" onclick="open_settings_menu()">
+        <div class="button_text">change settings</div>
+        <img src="gear.png" class="gear"><img/>
+    </button>
+
+    <button class="settings_button settings_button_clear_all" onclick="clear_all()">
+        <div class="button_text">clear all</div>
+        <img src="garbage.png" class="gear"><img/>
+    </button>
+
+    <button class="settings_button settings_button_go_back" onclick="change_url_main()">
+        <div class="button_text">go back</div>
+        <img src="go_back.png" class="gear"><img/>
+    </button>
+
+
+    <div class="line_placer">
+        <div class="line_text">current select settings</div>
+    </div>
+
+    <div class="line_placer line_placer_selection line_placer_other">
+        <div class="line_text">one at a time</div>
+    </div>
+    <div class="line_placer line_placer_overwrite line_placer_other">
+        <div class="line_text">overwrite previous off</div>
+    </div>
+
+</div>
+
+<div class="scrollable-div">
+    <!-- Content wider than the div -->
+    <div id="cont" style="width: 4005px; height: calc(100% - 10px); background: #535353; border-radius: 8px;">    </div>
+</div>
+
+<script>
+    spawn_dots();
+</script>
+
+
+</body>
+</html>
