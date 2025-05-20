@@ -1,6 +1,6 @@
 let current_mode = 'none';
 function change_url_main() {
-    window.location.href = "projects.html";
+    window.location.href = "https://milkyway42114.github.io/Test/projects.html";
 }
 function redraw_buttons(input) {
     current_mode = input;
@@ -114,7 +114,7 @@ function open_settings_menu() {
 
     let settings_button_img = document.createElement("img");
     settings_button_img.classList.add("gear");
-    settings_button_img.src = "continue.png";
+    settings_button_img.src = "https://milkyway42114.github.io/Test/continue.png";
     continue_button.appendChild(settings_button_img);
 
     let top_text = document.createElement("div");
