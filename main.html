@@ -1,57 +1,312 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>=)</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta charset="UTF-8">
+    <title>D&P menu</title>
     <style>
-        body {
-            background-color: #313131;
-            margin: 0;
-            padding: 0;
-        }
-
-        .info {
-            top: 45%;
-        }
-
-        .projects {
-            top: calc(45% + 60px);
-        }
-
-        .bas {
-            width: 300px;
-            height: 80px;
-            background-color: black;
-            border-radius: 30px;
+        .background_main_element{
             position: absolute;
-            top: 20%;
-            left: calc(50% - 150px);
+            width: 400px;
+            height: 100px;
+            top: 120px;
+            left: calc(50% - 200px);
+            border-radius: 10px;
+            background-color: #F77F00;
+
             display: flex;
-            justify-content: center;
-            align-items: center;
-            color: aliceblue;
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
+            font-family: "fantasy";
             font-size: 250%;
+        }
+        .menu_item{
+            position: absolute;
+            width: 300px;
+            height: 100px;
+            top: 300px;
+            left: calc(50% - 150px);
+            border-radius: 10px;
+            background-color: #F77F00;
+        }
+        .menu_main_text{
+            font-size: 120%;
+            position: absolute;
+            top: 15px;
+            left: 15px
+        }
+        .menu_price{
+            font-size: 140%;
+            position: absolute;
+            top: 60px;
+            left: 20px
+        }
+        .img_menu{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 80px;
+        }
+        .gerechten_index{
+            position: absolute;
+            top: 200px;
+            left: calc(50% - 165px);
+            width: 330px;
+            height: 80px;
+
+            background-color: #F77F00;
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
+            font-family: "fantasy";
+            font-size: 250%;
+        }
+        .main_element_background{
+            position: absolute;
+            width: 370px;
+            height: 715px;
+            top: 300px;
+            left: calc(50% - 185px);
+            border-radius: 10px;
+            background-color: #f59f00;
+        }
+        .bas2{
+            top: 1100px;
+            height: 485px;
+        }
+        .bas3{
+            top: 1670px;
+        }
+        .description{
+            position: absolute;
+            top: 60px;
+            left: 90px;
+            font-size: 110%;
+        }
+        .credits{
+            position: absolute;
+            top: 2450px;
+            left: calc(50% - 175px);
+            width: 350px;
+            height: 60px;
+
+            background-color: #F77F00;
+            border-radius: 10px;
+        }
+        .credits_name{
+            width: 275px;
+            position: absolute;
+            left: 50px;
+            top: 10px;
+            font-size: 100%;
         }
     </style>
 </head>
-<body>
+<body style="background-color: #ffbc50">
+<div class="background_main_element">
+    Mexicin
+</div>
 
-    <div class="bas">euhhh heren</div>
 
-    <button class="button_style info" onclick="change_url_info()">info</button>
-    <button class="button_style projects" onclick="change_url_projects()">projects</button>
+<div id="bas" class="main_element_background">
+    <div class="gerechten_index">
+        Gerechten
+    </div>
 
-    <script>
-        function change_url_info() {
-            window.location.href = "info.html";
-        }
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Kippen-Burito
+        </div>
+        <div class="menu_price">
+            € 3,95
+        </div>
+        <img src="https://www.leukerecepten.nl/app/uploads/2023/09/wraps-met-kip_b-2.jpg" class="img_menu"><img>
+    </div>
 
-        function change_url_projects() {
-            window.location.href = "projects.html";
-        }
-    </script>
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Taco Special
+        </div>
+        <div class="menu_price">
+            € 9,50
+        </div>
+        <img src="https://onthewater.com/wp-content/uploads/2020/05/IMG_3097-fish-tacos-800x600.jpeg" class="img_menu"><img>
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Tortilla chips met dip
+        </div>
+        <div class="menu_price">
+            € 6,95
+        </div>
+        <img src="https://images.immediate.co.uk/production/volatile/sites/30/2012/03/Homemade-tortilla-chips-dc33a7d.jpg?quality=90&webp=true&resize=300,272" class="img_menu"><img>
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Kippenpoten
+        </div>
+        <div class="menu_price">
+            € 7,50
+        </div>
+        <div class="description">
+            (met bot)
+        </div>
+        <img src="https://meatformore.nl/cdn/shop/files/kippenpoten-gekruid_566x378.jpg?v=1726689548" class="img_menu"><img>
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Burger combo
+        </div>
+        <div class="description">
+            (3 burgers + friet)
+        </div>
+        <div class="menu_price">
+            € 15,95
+        </div>
+        <img src="https://www.shutterstock.com/shutterstock/photos/2251023529/display_1500/stock-photo-burger-combo-three-different-types-of-hamburgers-2251023529.jpg" class="img_menu"><img>
+    </div>
+
+
+</div>
+
+
+
+<div id="bas2" class="main_element_background bas2">
+    <div class="gerechten_index">
+        Snacks
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Gyoza
+        </div>
+        <div class="menu_price">
+            € 4,95
+        </div>
+        <img src="https://assets.epicurious.com/photos/628ba0d3fa016bab2139efa2/1:1/w_1600,c_limit/Gyoza_RECIPE_051922_34332.jpg" class="img_menu"><img>
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Onion Rings
+        </div>
+        <div class="menu_price">
+            € 2,50
+        </div>
+        <img src="https://static01.nyt.com/images/2020/04/22/dining/ejm-sourdough-03/ejm-sourdough-03-master768.jpg?quality=75&auto=webp" class="img_menu"><img>
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Popcorn Chicken
+        </div>
+        <div class="menu_price">
+            € 4,50
+        </div>
+        <img src="https://lifewithjanet.com/wp-content/uploads/2024/05/onderhoudender_Homemade_Popcorn_Chicken_177b6438-d172-40a8-a9a9-5a88bba9372d.png" class="img_menu"><img>
+    </div>
+</div>
+
+
+
+<div id="bas3" class="main_element_background bas3">
+    <div class="gerechten_index">
+        Drinken
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Hertog-Jan
+        </div>
+        <div class="menu_price">
+            € 3,99
+        </div>
+        <img src="https://cdn.webshopapp.com/shops/317814/files/464909060/600x465x3/hertog-jan-hertog-jan-grand-pilsner-30cl-57.jpg" class="img_menu"><img>
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            SPA
+        </div>
+        <div class="description">
+            (lemon, casis)
+        </div>
+        <div class="menu_price">
+            € 2,50
+        </div>
+        <img src="https://www.kantinewinkel.nl/media/cache/sylius_shop_product_large_thumbnail/product/6798/spa-fruit-cassis-blackberry-pet-6-x-400-ml.jpg" class="img_menu"><img>
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            RAAK
+        </div>
+        <div class="description">
+            (aardbei 0 sugar)
+        </div>
+        <div class="menu_price">
+            € 2,50
+        </div>
+        <img src="https://cdnimg.retailrocket.net/api/1.0/partner/624feb0c297ed1968e53f80e/item/3449/picture/?format=jpg&width=249&height=249&scale=both" class="img_menu"><img>
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            Water
+        </div>
+        <div class="description">
+            (+ perzik smaak)
+        </div>
+        <div class="menu_price">
+            € 1,50
+        </div>
+        <img src="https://goedkoopdrank.nl/wp-content/uploads/2015/08/spa-reine-1-5-liter-fles-510x510.jpeg" class="img_menu"><img>
+    </div>
+
+    <div class="menu_item">
+        <div class="menu_main_text">
+            aardbeien milkshake
+        </div>
+        <div class="menu_price">
+            € 4,45
+        </div>
+        <img src="https://www.leukerecepten.nl/app/uploads/2021/08/milkshake-aardbeien_v.jpg" class="img_menu"><img>
+    </div>
+
+</div>
+
+<div class="credits">
+    <div class="credits_name">
+        Mees Matthijssen, Thom van Ofwegen, Mario Varga, Jurre van Middelkoop
+    </div>
+</div>
+
 
 </body>
 </html>
+<script>
+    const parent = document.getElementById("bas");
+    let y = 20;
+    for (const child of parent.children) {
+        child.style.top = y + "px";
+        y += 115;
+    }
+
+    const parent2 = document.getElementById("bas2");
+    let y2 = 20;
+    for (const child of parent2.children) {
+        child.style.top = y2 + "px";
+        y2 += 115;
+    }
+
+    const parent3 = document.getElementById("bas3");
+    let y3 = 20;
+    for (const child of parent3.children) {
+        child.style.top = y3 + "px";
+        y3 += 115;
+    }
+</script>
