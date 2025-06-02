@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Emperium Server</title>
+  <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+  <script src="main_connection.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+    input, button { padding: 5px; margin: 5px 0; width: 100%; }
+    #log { background: #f0f0f0; padding: 10px; height: 200px; overflow-y: auto; white-space: pre-wrap; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+<h2>Emperium Server terminal</h2>
+
+<p><strong>server ID:</strong> <span id="my-id">...</span></p>
+
+<input id="peer-id" placeholder="Voer ID van andere gebruiker in" />
+<button onclick="connect()">Verbind</button>
+
+<div id="log"></div>
+
+<input id="msg" placeholder="Typ een bericht..." />
+<button onclick="sendMessage()">Verstuur</button>
+
+
+</body>
+</html>
