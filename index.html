@@ -1,0 +1,141 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="start.css">
+  <link rel="stylesheet" href="login_register_select.css">
+  <script src="transition.js"></script>
+  <script src="functions.js"></script>
+  <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+</head>
+
+<body>
+
+<img
+        src="https://images.wallpaperscraft.com/image/single/lake_mountains_trees_159678_3840x2400.jpg"
+        class="background_img_default"
+        id="background_img"
+>
+
+<div class="background_shader"></div>
+<div class="main_frame" id="main_frame">
+  <div class="line">
+    <div class="line_fade"></div>
+    <div class="bottom_text">Select account</div>
+  </div>
+</div>
+</body>
+<div class="bottom_text main_text" id="title">Emperium</div>
+<div class="credits">
+  made by
+  <div class="credits_main_text">Programing / Design - J.v.Middelkoop | Advertisement / Design - S.v.Oosterhout</div>
+</div>
+<!-- for the login options!-->
+<div class="choose_block" id="login">
+  <div class="choose_block_main_text">Login</div>
+  <div class="explain_text">Username</div>
+  <input type="text" class="typing_bar" placeholder="type username here">
+
+  <div class="explain_text" style="top: 150px">Password</div>
+  <input type="text" class="typing_bar" placeholder="type password here" style="top: 180px">
+
+  <div class="red_text">wrong username or password</div>
+
+  <div class="forgot_password">forgot password/username?</div>
+
+  <button class="continue_button" onmouseenter="play_hover_sound()">Continue</button>
+
+
+</div>
+<!-- for the register!-->
+<div class="choose_block" id="register">
+  <div class="choose_block_main_text">Register</div>
+
+  <div class="explain_text">Choose username</div>
+  <input type="text" class="typing_bar" placeholder="type username here">
+
+  <div class="explain_text" style="top: 140px">Choose password</div>
+  <input type="text" class="typing_bar" placeholder="type password here" style="top: 170px">
+
+  <div class="explain_text" style="top: 210px">Choose Email</div>
+  <input type="text" class="typing_bar" placeholder="type Email here" style="top: 240px">
+
+  <div class="red_text" style="top: 275px">wrong username or password</div>
+
+  <div class="forgot_password">forgot password/username?</div>
+
+  <button class="continue_button" onmouseenter="play_hover_sound()">Continue</button>
+</div>
+
+<!-- for the type of new account adding!-->
+<!-- for the login !-->
+<button class="type_selection"
+        id="login_select"
+        onclick="a('login')"
+        onmouseenter="play_hover_sound()"
+>
+  <img class="type_img" src="https://www.svgrepo.com/show/505925/login.svg">
+  <div class="type_selection_text">Login</div>
+</button>
+<!-- for the go back!-->
+<button class="type_selection"
+        id="go_back_select"
+        style="left: calc(50% - 75px)"
+        onclick="a('go_back')"
+        onmouseenter="play_hover_sound()"
+>
+  <img class="type_img" src="https://www.svgrepo.com/show/376074/go-back.svg">
+  <div class="type_selection_text">Go back</div>
+</button>
+<!-- for the register !-->
+<button class="type_selection"
+        style="left: calc(50% + 100px)"
+        onclick="a('register')"
+        id="register_select"
+        onmouseenter="play_hover_sound()"
+>
+  <img class="type_img" src="https://www.svgrepo.com/show/510136/plus.svg">
+  <div class="type_selection_text">Register</div>
+</button>
+
+<!-- for the audio!-->
+<div id="audio_list"></div>
+<audio src="rainy_sound.mp3" id="background_sound"></audio>
+
+<!-- adding a click to start button!-->
+
+
+
+<!-- for the slow entering!-->
+<div class="full_screen_black" id="loading"></div>
+<button onclick="location.reload()">refresh</button>
+
+<script>
+  let saved_accounts = [
+    ["Milkyway42114", "password123"],
+    ["Kingseppie1", "password456"],
+    ["BasvanValen", "password789"]
+  ]
+  // ts code runs when everything has loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    adjust_main_frame_size(saved_accounts);
+    spawn_login_options(saved_accounts)
+
+    // make everything appear
+    let loading = document.getElementById("loading");
+    setTimeout(function (){
+      loading.style.backgroundColor = "rgba(0, 0, 0, 0.0)"
+      let background_noise = document.getElementById("background_sound");
+      background_noise.currentTime = 3
+      background_noise.addEventListener("ended", () => {
+        background_noise.currentTime = 10
+      });
+      background_noise.volume = 0.2
+      background_noise.play()
+    },200)
+  });
+</script>
+</html>
