@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bas</title>
+    <style>
+        .bas {
+            width: 100px;
+            height: 150px;
+            position: absolute;
+            left: calc(50% - 50px);
+            top: 50%;
+        }
+        .falling {
+            position: absolute;
+            width: 50px; /* change size if you want */
+            height: 50px;
+        }
+        .top_text{
+            position: fixed;     /* stays in place even if you scroll */
+            top: 20px;           /* distance from the top */
+            left: 50%;           /* start from the middle */
+            transform: translateX(-50%); /* shift back by half width */
+            font-size: 3rem;     /* big text */
+            font-weight: bold;
+            color: black;        /* text color */
+        }
+        .heart{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 30px;
+        }
+        .died_text{
+            position: fixed;     /* stays in place even if you scroll */
+            top: -1000px;           /* distance from the top */
+            left: 50%;           /* start from the middle */
+            transform: translateX(-50%); /* shift back by half width */
+            font-size: 5rem;     /* big text */
+            font-weight: bold;
+            color: red;        /* text color */
+        }
+        .againe{
+            position: absolute;
+            left: calc(50% - 150px);
+            top: -1000px;
+            width: 300px;
+            height: 80px;
+            font-size: 3rem;
+        }
+        .start{
+            position: absolute;
+            left: calc(50% - 150px);
+            top: calc(50% - 40px);
+            width: 300px;
+            height: 80px;
+            font-size: 3rem;
+        }
+        .explain{
+            position: fixed;     /* stays in place even if you scroll */
+            top: calc(50% + 50px);           /* distance from the top */
+            left: 50%;           /* start from the middle */
+            transform: translateX(-50%); /* shift back by half width */
+            font-size: 2rem;     /* big text */
+            width: 400px;
+            font-weight: bold;
+            color: black;        /* text color */
+        }
+    </style>
+</head>
+<body>
+<img class="bas" src="https://milkyway42114.github.io/Test/bas.jpg" id="b">
+<div class="top_text" id="top_text">
+    score: 0
+</div>
+<img src="https://banner2.cleanpng.com/20240401/vz/transparent-valentines-day-round-red-heart-in-clear-material660a489fdaa0e9.83456205.webp"
+     class="heart" style="left: calc(50% - 150px)" id="1">
+<img src="https://banner2.cleanpng.com/20240401/vz/transparent-valentines-day-round-red-heart-in-clear-material660a489fdaa0e9.83456205.webp"
+     class="heart" style="left: calc(50% - 50px)" id="2">
+<img src="https://banner2.cleanpng.com/20240401/vz/transparent-valentines-day-round-red-heart-in-clear-material660a489fdaa0e9.83456205.webp"
+     class="heart" style="left: calc(50% + 50px)" id="3">
+
+<div id="parent"></div>
+
+<div class="died_text" id="died_text">you died</div>
+<button class="againe" id="againe" onclick="on_click()">again?</button>
+
+<button class="start" id="start" onclick="start_game()">start</button>
+<div class="explain" id="explain">you must collect the fastfood but not the healty food</div>
+
+<script>
+    let inter = ""
+    function start_game(){
+        document.getElementById("start").remove()
+        document.getElementById("explain").remove()
+        inter = setInterval(createFallingImage, 1000);
+    }
+
+    function on_click(){
+        location.reload()
+    }
+    let good_list = [
+        "https://banner2.cleanpng.com/lnd/20240506/zyh/avkks58un.webp",
+        "https://banner2.cleanpng.com/20180501/uow/avdedb3jb.webp",
+        "https://banner2.cleanpng.com/20231214/cgb/transparent-french-fries-1710974755987.webp",
+
+        "https://banner2.cleanpng.com/20180204/ofw/av28icy6w.webp",
+        "https://banner2.cleanpng.com/20171128/115/av2f4dfkb.webp",
+        "https://banner2.cleanpng.com/20180310/bue/av0jomrtz.webp"
+    ]
+
+    let score = 0
+    let lives = 3
+    // for spawing the hearts
+    function createFallingImage() {
+        const img = document.createElement("img");
+        let random_num = Math.floor(Math.random() * 6)
+        img.src = good_list[random_num];
+        img.className = "falling";
+
+        // random x position
+        const x = Math.random() * (window.innerWidth - 50);
+        img.style.left = x + "px";
+        img.style.top = "0px";
+        document.getElementById("parent").appendChild(img)
+
+        let y = 0;
+        const fallSpeed = 2 + Math.random() * 3; // random fall speed
+
+        function fall() {
+            y += fallSpeed;
+            img.style.top = y + "px";
+            let b = document.getElementById("b");
+            if (y + 50 > Number(b.y) && y < Number(b.y) + 150 && x + 50 > Number(b.x) && x < Number(b.x) + 100) {
+                console.log("hit")
+                img.remove()
+                y = "100%"
+                if (lives > 0){
+                    if (random_num <= 2) {
+                        score += 1
+                    } else {
+                        lives -= 1
+                        document.getElementById(String(lives + 1)).remove()
+                        if (lives === 0){
+                            document.getElementById("died_text").style.top = "calc(50% - 32px)"
+                            document.getElementById("againe").style.top = "calc(50% + 100px)"
+                            clearInterval(inter)
+                            document.getElementById("parent").innerHTML = ""
+                        }
+                        score -= 3
+                    }
+                }
+                document.getElementById("top_text").textContent = "score: " + String(score)
+            }
+            if (y + 50 < window.innerHeight) {
+                requestAnimationFrame(fall);
+            } else {
+                img.remove(); // clean up when it leaves the screen
+            }
+        }
+        requestAnimationFrame(fall);
+    }
+
+    document.addEventListener("mousemove", (event) => {
+        let bas = document.getElementById("b");
+        bas.style.left = event.clientX - 50 + "px";
+    });
+
+
+
+</script>
+</body>
+</html>
